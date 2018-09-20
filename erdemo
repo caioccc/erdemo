@@ -1,0 +1,58 @@
+#!/bin/bash
+
+SERVER_DIR="server"
+WEBUI_DIR="webui"
+EDS_DIR="$WEBUI_DIR/eds"
+PYTHON_ENV="env"
+PYTHON_ENV_DIR="$SERVER_DIR/$PYTHON_ENV"
+
+set -e
+
+init() {
+    # rm -rf $EDS_DIR
+    # mkdir -p $EDS_DIR
+    # wget http://eds.rxn.us/public/zip/bundle/bundle.tar.gz -P $EDS_DIR
+    # cd $EDS_DIR
+    # tar xzvf bundle.tar.gz
+    # cd -
+    npm --prefix $WEBUI_DIR install
+    
+    python3 -m venv $PYTHON_ENV_DIR
+    source $PYTHON_ENV_DIR/bin/activate
+    pip3 install wheel
+    pip3 install Flask
+    deactivate
+}
+
+build() {
+    npm --prefix $WEBUI_DIR run build
+}
+
+serve() {
+    source $PYTHON_ENV_DIR/bin/activate
+    export FLASK_ENV=development
+    python3 $SERVER_DIR/server.py
+    flask run
+    deactivate
+}
+
+clean() {
+    rm -rf $WEBUI_DIR/node_modules
+    rm -rf $WEBUI_DIR/www/dist
+    rm -rf $PYTHON_ENV_DIR
+    rm -rf $SERVER_DIR/__pycache__
+}
+
+if [ "$1" == "" ]; then
+    echo "./erdemo init | build | serve | clean";
+    exit 0;
+fi;
+
+if [ "`type -t $1`" != "function" ]; then
+    echo "Command not found: '$1'";
+    exit 1;
+fi;
+
+echo "Running command: $1"
+$1
+echo "Done!"

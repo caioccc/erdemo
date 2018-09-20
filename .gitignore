@@ -1,0 +1,9 @@
+node_modules
+
+webui/www/dist
+webui/eds
+
+server/env
+
+__pycache__
+*.pyc

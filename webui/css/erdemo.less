@@ -1,0 +1,72 @@
+/* Common styles for all demo modes */
+@import "../eds/common/styles";
+
+.btn-mode {
+    margin-left: 16px;
+    color: inherit !important;
+}
+
+.spacer {
+    flex-grow: 1;
+}
+
+.btn-mode:hover {
+    text-decoration: none !important;
+}
+
+.btn-mode.active {
+    font-weight: bold;
+}
+
+#app-header {
+    padding: 8px;
+}
+
+#app-header .title {
+    font-size: 1.5em;
+}
+
+#app-header .sub {
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+#heatmap {
+    height: 100%;
+}
+
+#disclaimer {
+    margin-top: -48px !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+#disclaimer .title:after {
+    content: none;
+}
+
+#hint {
+    margin-top: 128px;
+    font-size: 32px;
+    text-align: center;
+    opacity: 0.3;
+}
+
+#hint .icon {
+    font-size: 48px;
+    display: block;
+    margin: 16px;
+}
+
+/* Some improvements and fixes for broken/weird/missing EDS styles */
+.tile .header .title {
+    font-size: 1.2em !important;
+    font-weight: bold;
+}
+
+.light .dialog .content .top .title {
+    font-weight: bold;
+}

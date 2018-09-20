@@ -1,0 +1,32 @@
+{
+    "name": "erdemo_webui",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "webpack": "webpack --progress",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "npx webpack --config webpack.config.js"
+    },
+    "author": "Allan Vidal",
+    "license": "",
+    "dependencies": {
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0",
+        "dc": "2.1.8"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.4",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-react": "^6.24.1",
+        "webpack": "^4.1.1",
+        "webpack-cli": "^2.0.12",
+        "css-loader": "^0.28.9",
+        "extract-text-webpack-plugin": "next",
+        "file-loader": "^1.1.6",
+        "less": "^2.7.3",
+        "less-loader": "^4.0.5",
+        "style-loader": "^0.20.1"
+    }
+}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ERDemo</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="dist/erdemo.css">
+    
+
+    <style> 
+        body {
+          font: 10px sans-serif;
+        }
+    
+        .axis path,
+        .axis line {
+          fill: none;
+          stroke: #000;
+          shape-rendering: crispEdges;
+        }
+    
+        .x.axis path {
+          display: none;
+        }
+    
+        .line {
+          fill: none;
+          stroke: steelblue;
+          stroke-width: 1.5px;
+        }
+
+        .light input[type="radio"] {
+            display: inherit;
+            -webkit-appearance: radio;
+        }
+      </style>
+</head>
+
+<body class="level-0 light">
+<!-- In case you need to warn your users about the dangers of your demo:
+
+<div id="disclaimer" class="notification error non-closeable-notification">
+    <div class="top-row">
+        <div class="status"></div>
+        <div class="title">Warning</div>
+    </div>
+    <div class="description">
+        Warn your users that this is a dangerous demo and should be taken
+        with a grain of salt. Or not.
+    </div>
+</div>
+
+-->
+
+<header class="sysbar">
+    <div class="items-container">
+        <div class="item" tabindex="0">
+            <i class="icon icon-econ"></i>
+            <span class="product">ERDemo</span>
+            <span class="acronym">ED</span>
+        </div>
+    </div>
+    
+    <div class="items-container">
+        <a class="item btn-mode" id="btn-simple" href="?mode=simple">
+            <i class="icon icon-document"></i>
+            <span>Simple</span>
+        </a>
+        
+        <a class="item btn-mode" id="btn-react" href="?mode=react">
+            <i class="icon icon-code"></i>
+            <span>React</span>
+        </a>
+    </div>
+</header>
+
+<main>
+    <div class="app level-1 slide-right">
+        <!-- Application body -->
+        <div class="appbody">
+            <!-- Content -->
+            <div class="appcontent">
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+
+<!-- Default view for when there's no mode selected -->
+<template id="template--mode">
+    <div id="hint">
+        <i class="icon icon-info"></i>
+        Please select a demo mode on the top right corner
+    </div>
+</template>
+
+<template id="template-simple-mode">
+    <div id="simple-mode">
+        <div class="container-fluid">
+            <div id="app-header" class="row">
+                <div class="row">
+                    <div class="column sm-12">
+                        <span class="title">Simple mode</span>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="columns sm-8 sub">
+                        This is the simple mode, recommended for prototyping and building simple interfaces
+                    </div>
+                    <!-- Some mode-related buttons could be placed here -->
+                </div>
+            </div>
+            
+            <div class="row">
+                <!-- Intro tile -->
+                <div class="column sm-12 md-12 lg-6 xl-4">
+                    <div class="tile">
+                        <div class="header">
+                            <div class="left">
+                                <div class="title">Welcome to the ERDemo boilerplate</div>
+                            </div>
+                        </div>
+                        
+                        <p>ERDemo is boilerplate project for creating web-based graphical user interfaces for demos. We build upon the <a href="http://eds.internal.ericsson.com/">
+                        Ericsson Design System</a>, React, webpack and a few other technologies to help you get started faster.</p>
+                    </div>
+                </div>
+                <!-- /Intro tile -->
+                
+                <!-- EDS tile -->
+                <div class="column sm-12 md-12 lg-6 xl-4">
+                    <div class="tile">
+                        <div class="header">
+                            <div class="left">
+                                <div class="title">Ericsson Design System</div>
+                            </div>
+                        </div>
+                        
+                        <p class="column sm-12">For more information on the types of components and resources 
+                        you can use, see the <a href="http://eds.internal.ericsson.com/">
+                        Ericsson Design System</a> website.</p>
+                    </div>
+                </div>
+                <!-- /EDS tile -->
+                
+                <!-- Example tile -->
+                <div class="column sm-12 md-12 lg-6 xl-4">
+                    <div class="tile">
+                        <div class="header">
+                            <div class="left">
+                                <div class="title">Example: dialog</div>
+                            </div>
+                        </div>
+                        
+                        <p class="column sm-12">Check out this sample usage of the dialog component:<br />
+                        <button id="open-simple" class="btn primary">Open dialog</button>
+                        </p>
+                        
+                        <div id="dialog-simple" class="dialog" data-trigger="#open-simple" data-type="simple">
+                            <div class="content">
+                                <div class="top">
+                                    <div class="title">A dialog!</div>
+                                </div>
+                                <div class="body">
+                                    <p>This is a dialog that doesn't do anything!</p>
+                                    <input type="text" class="fullwidth" placeholder="Type something">
+                                    <div class="suffix icon-inside"><i class="icon icon-globe"></i></div>
+                                </div>
+                                <div class="bottom">
+                                    <button class="btn primary" data-close="true">OK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Example tile -->
+                
+                <!-- Other mode tile -->
+                <div class="column sm-12 md-12 lg-6 xl-4">
+                    <div class="tile">
+                        <div class="header">
+                            <div class="left">
+                                <div class="title">React-based mode</div>
+                            </div>
+                        </div>
+                        
+                        <p class="column sm-12">You can use React for building the interface as well. Check out the <a href="?mode=react">React-based mode</a> to learn how that works.</p>
+                    </div>
+                </div>
+                <!-- /Other mode tile -->
+                
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="template-react-mode">
+    <div id="react-mode"></div>
+</template>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+<script src="dist/erdemo.js" charset="utf-8"></script>
+
+
+</html>
