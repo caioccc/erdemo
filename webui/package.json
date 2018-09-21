@@ -11,9 +11,12 @@
     "author": "Allan Vidal",
     "license": "",
     "dependencies": {
-        "react": "^16.2.0",
-        "react-dom": "^16.2.0",
-        "dc": "2.1.8"
+        "@vtex/react-csv-parse": "^3.0.2",
+        "dc": "2.1.8",
+        "highcharts": "^6.1.3",
+        "highcharts-react-official": "^1.4.0",
+        "react": "^16.5.2",
+        "react-dom": "^16.5.2"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
@@ -27,6 +30,10 @@
         "file-loader": "^1.1.6",
         "less": "^2.7.3",
         "less-loader": "^4.0.5",
-        "style-loader": "^0.20.1"
+        "style-loader": "^0.20.1",
+        "highcharts-react-official": "",
+        "highcharts": "",
+        "react": "",
+        "react-dom": ""
     }
 }
