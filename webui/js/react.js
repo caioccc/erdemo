@@ -178,7 +178,7 @@ class ReactMode extends React.Component {
                 </div>
                 <div className="row">
 
-                    <div className="column sm-12 md-12 lg-12 xl-12">
+                    <div className="column sm-12 md-6 lg-6 xl-12">
                         <div className="tile">
                             <div className="header">
                                 <div className="left">
@@ -190,8 +190,6 @@ class ReactMode extends React.Component {
                                 <div className="column sm-12">
                                     <div id="graphic"></div>
                                     <Chart />
-
-
                                 </div>
                             </div>
 
